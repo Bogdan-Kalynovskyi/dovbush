@@ -1,0 +1,24 @@
+{
+  "name": "dovbush",
+  "version": "0.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easy-one/dovbush.git"
+  },
+  "author": "dan+david",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/easy-one/dovbush/issues"
+  },
+  "homepage": "https://github.com/easy-one/dovbush#readme"
+}
