@@ -7,12 +7,17 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link rel="icon" href="favicon.ico">
 
     <title>Blog Template for Bootstrap</title>
 
+    <link rel="stylesheet" href="../dist/css/swiper.min.css">
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/bootstrap/menu-slider.css">
 
     <!-- Custom styles for this template -->
     <link href="blog.css" rel="stylesheet">
@@ -26,17 +31,19 @@
         <p class="lead blog-description">An example blog template built with Bootstrap.</p>
       </div>
 
-    <div class="blog-masthead">
-      <div class="container">
-        <nav class="nav blog-nav">
-          <a class="nav-link active" href="#">Home</a>
-          <a class="nav-link" href="#">New features</a>
-          <a class="nav-link" href="#">Press</a>
-          <a class="nav-link" href="#">New hires</a>
-          <a class="nav-link" href="#">About</a>
-        </nav>
+    <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide menu">Menu slide</div>
+      <div class="swiper-slide content">
+        <div class="menu-button">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        Content slide
       </div>
     </div>
+  </div>
 
     
     </div>
@@ -166,5 +173,37 @@
     <script src="dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+
+<!-- Swiper JS -->
+  <script src="../dist/js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var toggleMenu = function(){
+      if (swiper.previousIndex == 0)
+        swiper.slidePrev()
+    }
+    , menuButton = document.getElementsByClassName('menu-button')[0]
+    , swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto'
+      , initialSlide: 1
+      , resistanceRatio: .00000000000001
+      , onSlideChangeStart: function(slider) {
+        if (slider.activeIndex == 0) {
+          menuButton.classList.add('cross')
+          menuButton.removeEventListener('click', toggleMenu, false)
+        } else
+          menuButton.classList.remove('cross')
+      }
+      , onSlideChangeEnd: function(slider) {
+        if (slider.activeIndex == 0)
+          menuButton.removeEventListener('click', toggleMenu, false)
+        else
+          menuButton.addEventListener('click', toggleMenu, false)
+      }
+      , slideToClickedSlide: true
+    })
+  </script>
+
   </body>
 </html>
