@@ -1,0 +1,19 @@
+Options -Indexes
+ServerSignature Off
+
+<FilesMatch "\.(txt|js|css|gif|jpg|jpeg|png|avi|mp4|mpeg|ico)$">
+    Header set Cache-Control "max-age=25920000"
+</FilesMatch>
+
+# Disable caching for HTML documents
+<FilesMatch "(^api/|\.php)$">
+    Header unset Cache-Control
+</FilesMatch>
+
+RewriteEngine On
+
+# Handle REST api calls
+RewriteRule ^api/ api.php
+
+# Disclosure Authorisation headers to PHP
+RewriteRule .? - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
