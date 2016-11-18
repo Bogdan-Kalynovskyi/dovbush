@@ -91,15 +91,17 @@ h6, .h6 {
   margin-bottom: 0;
   font-size: 2rem;
   font-weight: normal;
+  text-align: center;
 }
 .blog-description {
   font-size: 1.1rem;
   color: #999;
+  text-align: center;
 }
 
 @media (min-width: 40em) {
   .blog-title {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -132,7 +134,7 @@ h6, .h6 {
 .blog-pagination > .btn {
   border-radius: 2rem;
 }
-
+ 
 
 /*
  * Blog posts
@@ -140,6 +142,9 @@ h6, .h6 {
 
 .blog-post {
   margin-bottom: 4rem;
+  background: #f5f5f5;
+  padding-left: 15px;
+  padding-top: 5px;
 }
 .blog-post-title {
   margin-bottom: .25rem;
